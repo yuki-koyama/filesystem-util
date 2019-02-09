@@ -27,6 +27,14 @@
 #include <dirent.h>
 #include <iostream>
 
+namespace
+{
+    bool HasSuffix(const std::string& text, const std::string& suffix)
+    {
+        return text.size() >= suffix.size() && text.find(suffix, text.size() - suffix.size()) != std::string::npos;
+    }
+}
+
 namespace filesystemutil
 {
     std::vector<std::string> GetFileList(const std::string& dir_path,
@@ -43,7 +51,7 @@ namespace filesystemutil
         while ((dir_entry = readdir(dir_ptr)) != nullptr)
         {
             const std::string entry_name = dir_entry->d_name;
-            if (entry_name.size() >= suffix.size() && entry_name.find(suffix, entry_name.size() - suffix.size()) != std::string::npos)
+            if (HasSuffix(entry_name, suffix))
             {
                 file_list.push_back(entry_name);
             }
