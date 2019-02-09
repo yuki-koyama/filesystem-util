@@ -29,7 +29,8 @@
 
 namespace filesystemutil
 {
-    std::vector<std::string> GetFileList(const std::string& dir_path, const std::string& suffix)
+    std::vector<std::string> GetFileList(const std::string& dir_path,
+                                         const std::string& suffix)
     {
         DIR* dir_ptr = opendir(dir_path.c_str());
         if (dir_ptr == NULL)

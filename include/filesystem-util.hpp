@@ -30,7 +30,8 @@
 
 namespace filesystemutil
 {
-    std::vector<std::string> GetFileList(const std::string& dir_path, const std::string& suffix);
+    std::vector<std::string> GetFileList(const std::string& dir_path,
+                                         const std::string& suffix = "");
 }
 
 #endif // filesystem_util_hpp
