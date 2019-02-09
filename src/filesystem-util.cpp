@@ -33,14 +33,14 @@ namespace filesystemutil
                                          const std::string& suffix)
     {
         DIR* dir_ptr = opendir(dir_path.c_str());
-        if (dir_ptr == NULL)
+        if (dir_ptr == nullptr)
         {
             std::cerr << "Could not open the directory." << std::endl;
             return {};
         }
-        struct dirent* dir_entry;
+        dirent* dir_entry;
         std::vector<std::string> file_list;
-        while ((dir_entry = readdir(dir_ptr)) != NULL)
+        while ((dir_entry = readdir(dir_ptr)) != nullptr)
         {
             const std::string entry_name = dir_entry->d_name;
             if (entry_name.size() >= suffix.size() && entry_name.find(suffix, entry_name.size() - suffix.size()) != std::string::npos)
