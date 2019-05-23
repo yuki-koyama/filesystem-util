@@ -30,6 +30,10 @@
 
 namespace filesystemutil
 {
+    /// \return A list of file names in the specified directory. When some
+    /// suffix is specified, only files whose names have the suffix will be
+    /// listed. It is not ensured that the order of file names follows any
+    /// specific rule.
     std::vector<std::string> GetFileList(const std::string& dir_path,
                                          const std::string& suffix = "");
 }
