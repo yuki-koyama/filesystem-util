@@ -43,8 +43,7 @@ namespace filesystemutil
         DIR* dir_ptr = opendir(dir_path.c_str());
         if (dir_ptr == nullptr)
         {
-            std::cerr << "Could not open the directory." << std::endl;
-            return {};
+            throw std::runtime_error("Could not open the directory.");
         }
         dirent* dir_entry;
         std::vector<std::string> file_list;
